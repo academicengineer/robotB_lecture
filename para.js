@@ -13,10 +13,10 @@ $(function(){
             console.log('[CONNECTED]');
 
             // ALTextToSpeechを使う
-            qis.service('ALAnimatedSpeech').done(function(aas){
-                als.alAnimatedSpeech = aas;
+            qis.service('ALMotion').done(function(alm){
+                als.ALMotion = alm;
                 //console.log('接続成功');
-                aas.say('スライドの説明を中断します');
+                alm.setAngles(["HeadYaw", "HeadPitch"], [2.0, 0.0], 0.1);
             });
 
             // 接続断

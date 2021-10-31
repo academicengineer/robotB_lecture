@@ -27,6 +27,7 @@ driver.get('chrome-extension://iodihamcpbpeioajjeobimgagajmlibd/html/nassh.html'
 #ls \
 #python almotion_moveinit.py'
 
+
 import paramiko
 
 with paramiko.SSHClient() as ssh:
@@ -38,7 +39,7 @@ with paramiko.SSHClient() as ssh:
     ssh.connect('192.168.11.18', port=22, username='nao', password='kashi-lab')
 
     # コマンド実行
-    # stdin, stdout, stderr = ssh.exec_command('"export LD_LIBRARY_PATH=/opt/aldebaran/lib:/opt/aldebaran/lib/naoqi:/opt/ros/indigo/lib" && "export PYTHONPATH=${PYTHONPATH}:/opt/aldebaran/lib/python2.7/site-packages" && pwd && "/usr/bin/python hello.py" && python hello.py')
+    #stdin, stdout, stderr = ssh.exec_command('python hello.py')
     stdin, stdout, stderr = ssh.exec_command("export LD_LIBRARY_PATH=/opt/aldebaran/lib:/opt/aldebaran/lib/naoqi:/opt/ros/indigo/lib && export PYTHONPATH=${PYTHONPATH}:/opt/aldebaran/lib/python2.7/site-packages && python hello.py")
     # コマンド実行後に標準入力が必要な場合
     # stdin.write('password\n')
@@ -53,16 +54,25 @@ with paramiko.SSHClient() as ssh:
 
 """
 import paramiko
- 
-def ssh_command(ip, user, passwd, command):
+
+ip = "192.168.11.18"
+user = "nao"
+passwd = "kashi-lab"
+port = "22"
+
+def ssh_command(command):
     client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())vim 
-    client.connect(ip, username=user, password=passwd, port=22)
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(ip, user, passwd, port)
     ssh_session = client.get_transport().open_session()
     if ssh_session.active:
         ssh_session.exec_command(command)
         print(ssh_session.recv(1024))
     return
- 
-ssh_command('192.168.11.18', 'nao', 'kashi-lab', 'ls && pythopython hello.py')
+
+hello = "export LD_LIBRARY_PATH=/opt/aldebaran/lib:/opt/aldebaran/lib/naoqi:/opt/ros/indigo/lib && export PYTHONPATH=${PYTHONPATH}:/opt/aldebaran/lib/python2.7/site-packages && python hello.py"
+walk = ""
+move = ""
+
+ssh_command(hello)
 """

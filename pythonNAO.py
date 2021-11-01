@@ -54,6 +54,30 @@ naoPythonSsh("lec2_slide3.py")
 driver.find_element_by_id("skip-btn").click()
 naoPythonSsh("lec2_slide4.py")
 
+# スライド5枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide5.py")
+
+# スライド6枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide6.py")
+
+# スライド7枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide7.py")
+
+# スライド8枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide8.py")
+
+# スライド9枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide9.py")
+
+# スライド10枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide10.py")
+
 #time.sleep(5)
 #driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("lec2_slide2.py")

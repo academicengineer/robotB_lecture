@@ -16,9 +16,6 @@ ip = '192.168.11.18'
 # NAOのWebサーバをブラウザで起動
 driver.get("http://"+ip+"/apps/lec2_slide1.html")
 
-# NAOのトップページ自動起動
-driver.find_element_by_id("skip-btn").click()
-
 #ここにPythonで実行したいプログラム名を記載
 # python_code = 'hello.py'
 
@@ -39,8 +36,24 @@ def naoPythonSsh(python_code):
         for e in stderr:
             print('[err]', e, end='')
 
-#naoPythonSsh("lec2_slide1.py")
-naoPythonSsh("almotion_cartesianArm1.py")
+# スライド1枚目
+time.sleep(3)
+naoPythonSsh("lec2_slide1.py")
+naoPythonSsh("almotion_pointing.py")
+
+# スライド2枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide2.py")
+naoPythonSsh("almotion_move.py")
+
+# スライド3枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide3.py")
+
+# スライド4枚目
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide4.py")
+
 #time.sleep(5)
 #driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("lec2_slide2.py")

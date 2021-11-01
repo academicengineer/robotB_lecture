@@ -4,8 +4,20 @@
 # paramikoモジュールをpipでインストールするとimportできます
 import paramiko
 
+import time
+from selenium import webdriver
+
+# ChromeDriverのパス設定
+driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\slideBrowser\\chromedriver.exe')
+
 #IPはNAOのボタンをクリックして確認して変更してください。
 ip = '192.168.11.18'
+
+# NAOのWebサーバをブラウザで起動
+driver.get("http://"+ip+"/apps/lec2_slide1.html")
+
+# NAOのトップページ自動起動
+driver.find_element_by_id("skip-btn").click()
 
 #ここにPythonで実行したいプログラム名を記載
 # python_code = 'hello.py'
@@ -27,5 +39,8 @@ def naoPythonSsh(python_code):
         for e in stderr:
             print('[err]', e, end='')
 
-naoPythonSsh("hello.py")
-naoPythonSsh("almotion_move.py")
+#naoPythonSsh("lec2_slide1.py")
+naoPythonSsh("almotion_cartesianArm1.py")
+#time.sleep(5)
+#driver.find_element_by_id("skip-btn").click()
+#naoPythonSsh("lec2_slide2.py")

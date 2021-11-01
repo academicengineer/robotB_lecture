@@ -13,12 +13,37 @@ import time
 def main(session):
 
     # 読み込み
-    motion_service = session.service("ALMotion")
-    posture_service = session.service("ALRobotPosture")
+    # motion_service = session.service("ALMotion")
+    # posture_service = session.service("ALRobotPosture")
+
+    motion = session.service("ALMotion")
 
     # Wake up robot
-    motion_service.wakeUp()
+    # motion_service.wakeUp()
+    
+    motion.wakeUp()
 
+    # 
+    #motion.setAngles(["HeadYaw", "HeadPitch"], [2.0, 0.0], 0.1) #首を左に回転
+    #motion.setAngles(["HeadYaw", "HeadPitch"], [-2.0, 0.0], 0.1) #首を右に回転
+    #motion.setAngles(["HeadYaw", "HeadPitch"], [0.0, -0.6], 0.1) #首を上にあげる
+    #motion.setAngles(["HeadYaw", "HeadPitch"], [0.0, 0.5], 0.1) # 首を下にさげる
+    #motion.setAngles(["HeadYaw", "HeadPitch"], [0.0, 0.0], 0.1) #首を正面にむける
+    #motion.setAngles(["LShoulderPitch", "LShoulderRoll"], [-2.0, 0.0], 0.1) #左肩を縦回転する
+    #motion.setAngles(["LShoulderPitch", "LShoulderRoll"], [2.0, 1.3], 0.1) #左肩を横回転する
+    #motion.setAngles(["RShoulderPitch", "RShoulderRoll"], [-2.0, 0.0], 0.1) #右肩を縦回転する
+    #motion.setAngles(["RShoulderPitch", "RShoulderRoll"], [2.0, -1.3], 0.1) #右肩を横回転する
+    #motion.setAngles(["LElbowRoll", "LElbowYaw"], [-1.5, -2.0], 0.1) #左ひじを動かす
+    #motion.setAngles(["LElbowRoll", "LElbowYaw"], [0.0, 2.0], 0.1) #左ひじそのものを回転させる
+    #motion.setAngles(["RElbowRoll", "RElbowYaw"], [1.5, 2.0], 0.1) #右ひじを動かす
+    #motion.setAngles(["RElbowRoll", "RElbowYaw"], [0.0, -2.0], 0.1) #右ひじそのものを回転させる
+    #motion.setAngles("LWristYaw", 1.5, 0.1) #左手首を回転させる
+    #motion.setAngles("RWristYaw", -1.5, 0.1) #右手首を回転させる
+    #motion.openHand("LHand") #左手を開く
+    #motion.closeHand("LHand") #左手を閉じる
+    #motion.openHand("RHand") #右手を開く
+    #motion.closeHand("RHand") #右手を閉じる
+    
     # created a walk task
     #motionProxy.moveInit()
     #motionProxy.post.moveTo(0.2, 0.0, 0.1)
@@ -32,6 +57,7 @@ def main(session):
 
     # Example showing how to disable left arm motions during a move
     
+    """
     proxy = ALProxy("ALMotion", "127.0.0.1", 9559)
     leftArmEnable  = False
     rightArmEnable  = True
@@ -45,6 +71,7 @@ def main(session):
     print 'LeftArmEnabled: ',  proxy.getMoveArmsEnabled("LArm")
     print 'RightArmEnabled: ', proxy.getMoveArmsEnabled("RArm")
     print 'ArmsEnabled: ', proxy.getMoveArmsEnabled("Arms")
+    """
     
     # 腕上げる
     #posture_service.goToPosture("StandZero", 0.2)

@@ -144,19 +144,8 @@ def main(session):
     userArmArticular(motion_service)
     time.sleep(2.0)
 
-    #####################
-    ## End Walk
-    #####################
-    #TARGET VELOCITY
-    X = 0.0
-    Y = 0.0
-    Theta = 0.0
-    motion_service.moveToward(X, Y, Theta)
-
-    motion_service.waitUntilMoveIsFinished()
-
     # Go to rest position
-    motion_service.rest()
+    # motion_service.rest()
 
 
 if __name__ == "__main__":

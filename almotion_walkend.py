@@ -156,7 +156,7 @@ def main(session):
     motion_service.waitUntilMoveIsFinished()
 
     # Go to rest position
-    motion_service.rest()
+    # motion_service.rest()
 
 
 if __name__ == "__main__":

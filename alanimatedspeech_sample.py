@@ -15,9 +15,8 @@ def main(robotIP, PORT=9559):
 
     # say the text with the local configuration
     # animatedSpeechProxy.setLanguage("Japanese")
-    animatedSpeechProxy.say("皆さん、こんにちは。")
-    animatedSpeechProxy.say("学習工学と学習支援システムということで、今日は概論的なお話をしたいと思います。")
-    animatedSpeechProxy.say("この講義では、メディア技術を使って人の学習を支援する、人の知性を高める、人の知性を代行する、という話をします。")
+    animatedSpeechProxy.say("歌詞腹研究室の皆さん、おはようございます。")
+    animatedSpeechProxy.say("今日はいい天気ですね。")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

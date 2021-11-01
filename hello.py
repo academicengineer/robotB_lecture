@@ -15,9 +15,7 @@ def main(robotIP, PORT=9559):
 
     # say the text with the local configuration
     # animatedSpeechProxy.setLanguage("Japanese")
-    animatedSpeechProxy.say("皆さん、こんにちは。")
-    animatedSpeechProxy.say("学習工学と学習支援システムということで、今日は概論的なお話をしたいと思います。")
-    animatedSpeechProxy.say("この講義では、メディア技術を使って人の学習を支援する、人の知性を高める、人の知性を代行する、という話をします。")
+    animatedSpeechProxy.say("There is power in the knowledge. これは、有名なファイゲンバームという知識工学の父と呼ばれる方の言葉です。知識こそが巨大な力を持っている。知識にもっと注目して、汎用的なAIではなく、問題領域を反映した専門的な知識をコンピューターの内部に記述して問題を解いたほうが役に立つんだということを言い始めます。ここから知識工学が始まり、1980年代を中心に発展していきます。")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

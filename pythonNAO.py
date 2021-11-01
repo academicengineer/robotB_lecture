@@ -10,7 +10,7 @@ from selenium import webdriver
 ip = '192.168.11.18'
 
 # 講義スライドの枚数
-slideNum = 4
+slideNum = 5
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
@@ -45,9 +45,11 @@ naoPythonSsh("lec2_slide1.py")
 
 # スライド2枚目以降はfor文で繰り返し
 for i in range(2,slideNum+1):
+    naoPythonSsh("lec2_motion7.py")
     driver.find_element_by_id("skip-btn").click()
+    #naoPythonSsh("lec2_slide"+str(i)+".py")
     naoPythonSsh("lec2_slide"+str(i)+".py")
-    naoPythonSsh("lec2_motion"+str(i)+".py")
+    naoPythonSsh("lec2_motion8.py")
 
 #time.sleep(5)
 #driver.find_element_by_id("skip-btn").click()

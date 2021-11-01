@@ -3,15 +3,18 @@
 
 # paramikoモジュールをpipでインストールするとimportできます
 import paramiko
-
 import time
 from selenium import webdriver
 
-# ChromeDriverのパス設定
-driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\slideBrowser\\chromedriver.exe')
-
-#IPはNAOのボタンをクリックして確認して変更してください。
+# IPはNAOのボタンをクリックして確認して変更してください。
 ip = '192.168.11.18'
+
+# 講義スライドの枚数
+slideNum = 4
+
+# ChromeDriverのパス設定
+# Chromeのバージョンによってドライバが変わるので注意
+driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\slideBrowser\\chromedriver.exe')
 
 # NAOのWebサーバをブラウザで起動
 driver.get("http://"+ip+"/apps/lec2_slide1.html")
@@ -39,44 +42,12 @@ def naoPythonSsh(python_code):
 # スライド1枚目
 time.sleep(3)
 naoPythonSsh("lec2_slide1.py")
-naoPythonSsh("almotion_pointing.py")
 
-# スライド2枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide2.py")
-naoPythonSsh("almotion_move.py")
-
-# スライド3枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide3.py")
-
-# スライド4枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide4.py")
-
-# スライド5枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide5.py")
-
-# スライド6枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide6.py")
-
-# スライド7枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide7.py")
-
-# スライド8枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide8.py")
-
-# スライド9枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide9.py")
-
-# スライド10枚目
-driver.find_element_by_id("skip-btn").click()
-naoPythonSsh("lec2_slide10.py")
+# スライド2枚目以降はfor文で繰り返し
+for i in range(2,slideNum+1):
+    driver.find_element_by_id("skip-btn").click()
+    naoPythonSsh("lec2_slide"+str(i)+".py")
+    naoPythonSsh("lec2_motion"+str(i)+".py")
 
 #time.sleep(5)
 #driver.find_element_by_id("skip-btn").click()

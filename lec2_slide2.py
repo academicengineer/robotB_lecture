@@ -8,6 +8,7 @@ from naoqi import ALProxy
 
 def main(robotIP, PORT=9559):
 
+    motion = ALProxy("ALMotion", "nao.local", 9559)
     animatedSpeechProxy = ALProxy("ALAnimatedSpeech", robotIP, PORT)
     
     # set the local configuration
@@ -15,6 +16,7 @@ def main(robotIP, PORT=9559):
 
     # say the text with the local configuration
     # animatedSpeechProxy.setLanguage("Japanese")
+    motion.post.moveTo(-0.05, 0, 0)
     animatedSpeechProxy.say("PCであるとかスマートフォンであるとかWeb・インターネットであるとか色々な情報を媒介する情報メディアや機器がありますが、")
     animatedSpeechProxy.say("情報メディアの役割、というのは大きく2つに分けることができます。")
     animatedSpeechProxy.say("まず、人間の知性を増幅するという役割、これをインテリジェンスオーグメンテーション、IA、という言い方をします。知性というのはいろいろな側面がありますけども、ここでは学習を取り扱います。")

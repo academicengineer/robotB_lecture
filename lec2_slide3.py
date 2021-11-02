@@ -8,6 +8,7 @@ from naoqi import ALProxy
 
 def main(robotIP, PORT=9559):
 
+    motion = ALProxy("ALMotion", "nao.local", 9559)
     animatedSpeechProxy = ALProxy("ALAnimatedSpeech", robotIP, PORT)
     
     # set the local configuration
@@ -15,6 +16,7 @@ def main(robotIP, PORT=9559):
 
     # say the text with the local configuration
     # animatedSpeechProxy.setLanguage("Japanese")
+    motion.post.moveTo(0.05, 0, 0)
     animatedSpeechProxy.say("これから学習工学、学習を支援するシステムをお話をしますが、そのベースになっている学問に、知識工学、があります。")
     animatedSpeechProxy.say("知識工学は、IAの学問です。この学問が出てきたのが、1980年代なのですが、それ以前の1945年にコンピューターが現れて、その後ほぼ同時期にAIのような考え方が生まれて、コンピューターで人間の知性を代行する研究が始まります。そこからずっとAIの研究が進んで来たわけですが、80年代くらいになってコンピューターでは人間のような知的なことができないということが分かってきます。そこで、コンピューターを使って、AIではなく、IAを実現しようとした最初の学問が知識工学、と呼ばれるものです。")
 

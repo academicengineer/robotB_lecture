@@ -10,7 +10,7 @@ from selenium import webdriver
 ip = '192.168.11.18'
 
 # 講義スライドの枚数
-slideNum = 4
+slideNum = 3
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
@@ -40,19 +40,19 @@ def naoPythonSsh(python_code):
             print('[err]', e, end='')
 
 # スライド1枚目
-time.sleep(10)
+time.sleep(15)
 naoPythonSsh("lec2_slide1.py")
 driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("setOutputVolume30.py")
 naoPythonSsh("lec2_slide2-1.py")
-#naoPythonSsh("setOutputVolume60.py")
+naoPythonSsh("setOutputVolume60.py")
 naoPythonSsh("lec2_slide2-2.py")
 driver.find_element_by_id("skip-btn").click()
-#naoPythonSsh("setOutputVolume30.py")
+naoPythonSsh("setOutputVolume90.py")
 naoPythonSsh("altexttospeech_setparameter.py")
-driver.find_element_by_id("skip-btn").click()
+#driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("setOutputVolume60.py")
-naoPythonSsh("altexttospeech_setparameter_default.py")
+#naoPythonSsh("altexttospeech_setparameter_default.py")
 
 # スライド2枚目以降はfor文で繰り返し
 #for i in range(2,slideNum+1):

@@ -3,6 +3,7 @@
 
 """Example: Use setParameter Method"""
 
+from naoqi import ALProxy
 import qi
 import argparse
 import sys
@@ -22,19 +23,19 @@ def main(session):
     times.append([0.5, 1.0, 2.0])
     keys.append([0.5, 1.0, 0.0])
 
-    names.append("LElbowRoll")
+    names.append("RElbowRoll")
     times.append([0.5, 1.5])
     keys.append([-1.5, -1.5])
 
-    names.append("LHand")
+    names.append("RHand")
     times.append([1.0, 2.0])
     keys.append([1.0, 0.0])
 
-    names.append("LShoulderPitch")
+    names.append("RShoulderPitch")
     times.append([1.0, 2.0])
     keys.append([0.0, 1.1])
 
-    names.append("LShoulderRoll")
+    names.append("RShoulderRoll")
     times.append([1.0, 2.0])
     keys.append([1.0, 0.0])
 
@@ -46,7 +47,7 @@ def main(session):
     
     #Applies a pitch shifting to the voice
     tts.setLanguage("Japanese")
-    tts.setVolume(0.9)
+    tts.setVolume(0.4)
     tts.setParameter("pitchShift", 0.9) #1.0 - 4
     tts.setParameter("doubleVoice", 1.0) #1.0 - 4
     tts.setParameter("doubleVoiceLevel", 0) #0 - 4

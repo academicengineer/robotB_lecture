@@ -45,7 +45,7 @@ def main(session):
     
     #Applies a pitch shifting to the voice
     tts.setLanguage("Japanese")
-    tts.setVolume(0.5)
+    tts.setVolume(0.9)
     tts.setParameter("pitchShift", 1.0) #1.0 - 4
     tts.setParameter("doubleVoice", 1.0) #1.0 - 4
     tts.setParameter("doubleVoiceLevel", 0) #0 - 4

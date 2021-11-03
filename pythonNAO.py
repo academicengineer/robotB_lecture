@@ -10,7 +10,7 @@ from selenium import webdriver
 ip = '192.168.11.18'
 
 # 講義スライドの枚数
-slideNum = 5
+slideNum = 4
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
@@ -40,16 +40,27 @@ def naoPythonSsh(python_code):
             print('[err]', e, end='')
 
 # スライド1枚目
-time.sleep(3)
+time.sleep(10)
 naoPythonSsh("lec2_slide1.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("setOutputVolume30.py")
+naoPythonSsh("lec2_slide2-1.py")
+naoPythonSsh("setOutputVolume60.py")
+naoPythonSsh("lec2_slide2-2.py")
+driver.find_element_by_id("skip-btn").click()
+#naoPythonSsh("setOutputVolume30.py")
+#naoPythonSsh("lec2_slide3.py")
+#driver.find_element_by_id("skip-btn").click()
+#naoPythonSsh("setOutputVolume60.py")
+#naoPythonSsh("lec2_slide4.py")
 
 # スライド2枚目以降はfor文で繰り返し
-for i in range(2,slideNum+1):
-    naoPythonSsh("lec2_motion7.py")
-    driver.find_element_by_id("skip-btn").click()
-    #naoPythonSsh("lec2_slide"+str(i)+".py")
-    naoPythonSsh("lec2_slide"+str(i)+".py")
-    naoPythonSsh("lec2_motion8.py")
+#for i in range(2,slideNum+1):
+#    naoPythonSsh("lec2_motion7.py")
+#    driver.find_element_by_id("skip-btn").click()
+#    #naoPythonSsh("lec2_slide"+str(i)+".py")
+#    naoPythonSsh("lec2_slide"+str(i)+".py")
+#    naoPythonSsh("lec2_motion8.py")
 
 #time.sleep(5)
 #driver.find_element_by_id("skip-btn").click()

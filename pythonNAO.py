@@ -43,22 +43,22 @@ def naoPythonSsh(python_code):
 time.sleep(15)
 naoPythonSsh("lec2_slide1.py")
 driver.find_element_by_id("skip-btn").click()
-#naoPythonSsh("setOutputVolume30.py")
+naoPythonSsh("setOutputVolume30.py")
 naoPythonSsh("lec2_slide2-1.py")
 naoPythonSsh("setOutputVolume60.py")
 naoPythonSsh("lec2_slide2-2.py")
 driver.find_element_by_id("skip-btn").click()
 naoPythonSsh("setOutputVolume90.py")
 naoPythonSsh("altexttospeech_setparameter.py")
-#driver.find_element_by_id("skip-btn").click()
-#naoPythonSsh("setOutputVolume60.py")
-#naoPythonSsh("altexttospeech_setparameter_default.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("setOutputVolume60.py")
+naoPythonSsh("altexttospeech_setparameter_default.py")
 
 # スライド2枚目以降はfor文で繰り返し
 #for i in range(2,slideNum+1):
 #    naoPythonSsh("lec2_motion7.py")
 #    driver.find_element_by_id("skip-btn").click()
-#    #naoPythonSsh("lec2_slide"+str(i)+".py")
+    #naoPythonSsh("lec2_slide"+str(i)+".py")
 #    naoPythonSsh("lec2_slide"+str(i)+".py")
 #    naoPythonSsh("lec2_motion8.py")
 

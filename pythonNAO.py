@@ -40,7 +40,7 @@ def naoPythonSsh(python_code):
             print('[err]', e, end='')
 
 # スライド1枚目
-time.sleep(15)
+time.sleep(10)
 naoPythonSsh("lec2_slide1.py")
 driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("setOutputVolume30.py")

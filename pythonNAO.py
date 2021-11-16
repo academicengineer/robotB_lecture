@@ -24,7 +24,7 @@ from selenium import webdriver
 # IPはNAOのボタンをクリックして確認して変更してください。
 ip = '192.168.11.18'
 lecture = 'lec2'
-slide_num = 10
+slide_num = 4
 
 # 使用するWebカメラの選択
 webcam_id=0
@@ -198,7 +198,7 @@ def estimate(slide_num):
         # 右耳か左耳のいずれかの信頼度が85以上，かつ，右手首もしくは左手首の信頼度を取得できている場合，
         # 講義意図３：講義内容の詳細を理解させる（重要箇所の理解促進もしくは関係の理解促進）を実行する
         # NAOがジェスチャーや，パラ言語（ピッチ・音量・速度，間・抑揚）を用いて，スライド間の接続表現を意識してしゃべる，
-        elif (R_Eye or L_Eye) > 0.85 and (R_Wri or L_Wri) > 0:
+        elif (R_Eye or L_Eye) > 0.85 and (R_Wri or L_Wri) > 0 :
             naoPythonSsh("estimate4.py")
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態４：詳細を理解しているの判定")
@@ -219,6 +219,8 @@ def estimate(slide_num):
             naoPythonSsh("estimate2.py")
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態２：耳を傾けているの判定")
+        
+        driver.find_element_by_id("skip-btn").click()
 
 # 状態推定を行うロボット講義は，関数estimateを利用
 estimate(slide_num)

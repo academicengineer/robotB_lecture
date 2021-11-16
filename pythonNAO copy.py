@@ -1,5 +1,6 @@
-# NAOでPythonを実行するプログラム 島崎作成
-# 変更するのはipとpython_codeのみです。適宜関数化するなどしてご利用ください。
+#
+# 状態推定なし
+#
 
 # paramikoモジュールをpipでインストールするとimportできます
 import paramiko
@@ -8,9 +9,8 @@ from selenium import webdriver
 
 # IPはNAOのボタンをクリックして確認して変更してください。
 ip = '192.168.11.18'
-
-# 講義スライドの枚数
-slideNum = 4
+lecture = 'lec2'
+slide_num = 4
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
@@ -41,20 +41,25 @@ def naoPythonSsh(python_code):
 
 # スライド1枚目
 time.sleep(10)
-naoPythonSsh("lec2_slide1.py")
-driver.find_element_by_id("skip-btn").click()
+
+for i in range (1,slide_num+1):
+    naoPythonSsh(lecture+"_slide"+str(i)+".py")
+    driver.find_element_by_id("skip-btn").click()
+
+#naoPythonSsh("lec2_slide1.py")
+#driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("setOutputVolume30.py")
-naoPythonSsh("lec2_slide2-1.py")
+#naoPythonSsh("lec2_slide2-1.py")
 #naoPythonSsh("setOutputVolume60.py")
-naoPythonSsh("lec2_slide2-2.py")
-naoPythonSsh("altexttospeech_setparameter.py")
-driver.find_element_by_id("skip-btn").click()
+#naoPythonSsh("lec2_slide2-2.py")
+#naoPythonSsh("altexttospeech_setparameter.py")
+#driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("setOutputVolume30.py")
-naoPythonSsh("altexttospeech_setparameter.py")
-naoPythonSsh("lec2_slide3.py")
-driver.find_element_by_id("skip-btn").click()
+#naoPythonSsh("altexttospeech_setparameter.py")
+#naoPythonSsh("lec2_slide3.py")
+#driver.find_element_by_id("skip-btn").click()
 #naoPythonSsh("setOutputVolume60.py")
-naoPythonSsh("lec2_slide4.py")
+#naoPythonSsh("lec2_slide4.py")
 
 # スライド2枚目以降はfor文で繰り返し
 #for i in range(2,slideNum+1):

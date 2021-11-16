@@ -1,5 +1,6 @@
-# NAOでPythonを実行するプログラム 島崎作成
-# 変更するのはipとpython_codeのみです。適宜関数化するなどしてご利用ください。
+#
+# 状態推定あり
+#
 
 # インポート
 import cv2          # OpenCV
@@ -56,7 +57,7 @@ def estimate(slide_num):
     for i in range (1,slide_num+1):
 
         # ブラウザを開く
-        url = "http://"+ip+"/apps/"+lecture+"_slide1.html"
+        url = "http://"+ip+"/apps/"+lecture+"_slide"+str(i)+".html"
         driver.get(url)
 
         # Openposeの実行
@@ -192,7 +193,8 @@ def estimate(slide_num):
         if (R_Eye or L_Eye) == 0 or (R_Eye or L_Eye) < 0.25 :
             naoPythonSsh("estimate1.py")
             #driver.find_element_by_id("skip-btn").click()
-            print("受講状態１：聞いていないの判定")
+            print("受講状態１：聞いていないの判定：講義を聞いてください")
+            driver.find_element_by_id("skip-btn").click()
 
         # 受講状態４：詳細を理解しているの判定
         # 右耳か左耳のいずれかの信頼度が85以上，かつ，右手首もしくは左手首の信頼度を取得できている場合，
@@ -201,7 +203,8 @@ def estimate(slide_num):
         elif (R_Eye or L_Eye) > 0.85 and (R_Wri or L_Wri) > 0 :
             naoPythonSsh("estimate4.py")
             #driver.find_element_by_id("skip-btn").click()
-            print("受講状態４：詳細を理解しているの判定")
+            print("受講状態４：詳細を理解しているの判定：よく聞いていますね")
+            driver.find_element_by_id("skip-btn").click()
         
         # 受講状態３：重要箇所に気づくの判定
         # 右耳か左耳のいずれかの信頼度が85以上の場合，
@@ -210,7 +213,8 @@ def estimate(slide_num):
         elif  (R_Eye or L_Eye) > 0.85 :
             naoPythonSsh("estimate3.py")
             #driver.find_element_by_id("skip-btn").click()
-            print("受講状態３：重要箇所に気づくの判定")
+            print("受講状態３：重要箇所に気づくの判定：順調ですね")
+            driver.find_element_by_id("skip-btn").click()
     
         # 受講状態２：耳を傾けているの判定 上記以外すべての場合，
         # 講義意図２：重要箇所への集中・理解を促す（注意維持・注意誘導もしくは重要箇所の理解促進）を実行する
@@ -218,9 +222,8 @@ def estimate(slide_num):
         else:
             naoPythonSsh("estimate2.py")
             #driver.find_element_by_id("skip-btn").click()
-            print("受講状態２：耳を傾けているの判定")
-        
-        driver.find_element_by_id("skip-btn").click()
+            print("受講状態２：耳を傾けているの判定：もう少し集中して聞きましょう")
+            driver.find_element_by_id("skip-btn").click()
 
 # 状態推定を行うロボット講義は，関数estimateを利用
 estimate(slide_num)

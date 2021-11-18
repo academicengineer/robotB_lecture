@@ -184,6 +184,7 @@ def estimate(slide_num):
 
         # NAOに話させるプログラムの実行
         naoPythonSsh(lecture+"_slide"+str(i)+".py")
+        naoPythonSsh("pointing.py")
 
         # 受講状態１：聞いていないの判定 
         # 右耳か左耳のいずれかの信頼度が0　または 右耳と左耳の両方の信頼度が0.25以下の場合，
@@ -223,7 +224,7 @@ def estimate(slide_num):
             naoPythonSsh("estimate2.py")
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態２：耳を傾けているの判定：もう少し集中して聞きましょう")
-            driver.find_element_by_id("skip-btn").click()
+            driver.find_element_by_id("back-btn").click()
 
 # 状態推定を行うロボット講義は，関数estimateを利用
 estimate(slide_num)

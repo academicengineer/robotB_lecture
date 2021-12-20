@@ -42,12 +42,27 @@ def naoPythonSsh(python_code):
 # スライド1枚目
 time.sleep(10)
 
-for i in range (1,slide_num+1):
-    naoPythonSsh(lecture+"_slide"+str(i)+".py")
-    driver.find_element_by_id("skip-btn").click()
+#for i in range (1,slide_num+1):
+#    #naoPythonSsh("pointing.py")
 
-#naoPythonSsh("lec2_slide1.py")
-#driver.find_element_by_id("skip-btn").click()
+
+#    naoPythonSsh(lecture+"_slide"+str(i)+".py")
+#    driver.find_element_by_id("skip-btn").click()
+
+#naoPythonSsh("lec2_slide3.py")
+#naoPythonSsh("estimate4.py")
+
+naoPythonSsh("lec2_slide1.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide2-1.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide3.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide4.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide5.py")
+driver.find_element_by_id("skip-btn").click()
+
 #naoPythonSsh("setOutputVolume30.py")
 #naoPythonSsh("lec2_slide2-1.py")
 #naoPythonSsh("setOutputVolume60.py")

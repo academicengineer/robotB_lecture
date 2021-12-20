@@ -184,7 +184,6 @@ def estimate(slide_num):
 
         # NAOに話させるプログラムの実行
         naoPythonSsh(lecture+"_slide"+str(i)+".py")
-        naoPythonSsh("pointing.py")
 
         # 受講状態１：聞いていないの判定 
         # 右耳か左耳のいずれかの信頼度が0　または 右耳と左耳の両方の信頼度が0.25以下の場合，
@@ -195,7 +194,8 @@ def estimate(slide_num):
             naoPythonSsh("estimate1.py")
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態１：聞いていないの判定：講義を聞いてください")
-            driver.find_element_by_id("skip-btn").click()
+            naoPythonSsh("pointing.py")
+            naoPythonSsh(lecture+"_slide"+str(i)+".py")
 
         # 受講状態４：詳細を理解しているの判定
         # 右耳か左耳のいずれかの信頼度が85以上，かつ，右手首もしくは左手首の信頼度を取得できている場合，
@@ -206,6 +206,8 @@ def estimate(slide_num):
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態４：詳細を理解しているの判定：よく聞いていますね")
             driver.find_element_by_id("skip-btn").click()
+            naoPythonSsh("pointing.py")
+            naoPythonSsh(lecture+"_slide"+str(i+1)+".py")
         
         # 受講状態３：重要箇所に気づくの判定
         # 右耳か左耳のいずれかの信頼度が85以上の場合，
@@ -215,6 +217,7 @@ def estimate(slide_num):
             naoPythonSsh("estimate3.py")
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態３：重要箇所に気づくの判定：順調ですね")
+            naoPythonSsh("pointing.py")
             driver.find_element_by_id("skip-btn").click()
     
         # 受講状態２：耳を傾けているの判定 上記以外すべての場合，
@@ -225,6 +228,9 @@ def estimate(slide_num):
             #driver.find_element_by_id("skip-btn").click()
             print("受講状態２：耳を傾けているの判定：もう少し集中して聞きましょう")
             driver.find_element_by_id("back-btn").click()
+            naoPythonSsh("pointing.py")
+            naoPythonSsh(lecture+"_slide"+str(i-1)+".py")
+            
 
 # 状態推定を行うロボット講義は，関数estimateを利用
 estimate(slide_num)

@@ -11,14 +11,14 @@ import scipy
 import pandas as pd
 
 # IPはNAOのボタンをクリックして確認して変更してください。
-ip = '192.168.11.18'
+ip = '192.168.1.10'
 
 # 講義スライドの枚数
-slideNum = 3
+slideNum = 4
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
-driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\slideBrowser\\chromedriver.exe')
+driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\chromedriver.exe')
 
 # 作成されたOpenposeの特徴量を計算し，受講状態を推定する関数
 def estimate(slideNum):
@@ -105,6 +105,18 @@ estimate(5)
 
 naoPythonSsh("lec2_slide1.py")
 driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide2-1.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide3.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide4.py")
+driver.find_element_by_id("skip-btn").click()
+naoPythonSsh("lec2_slide5.py")
+driver.find_element_by_id("skip-btn").click()
+
+"""
+naoPythonSsh("lec2_slide1.py")
+driver.find_element_by_id("skip-btn").click()
 naoPythonSsh("setOutputVolume30.py")
 naoPythonSsh("lec2_slide2-1.py")
 naoPythonSsh("setOutputVolume60.py")
@@ -117,6 +129,7 @@ driver.find_element_by_id("skip-btn").click()
 naoPythonSsh("alleds_rasta.py")
 naoPythonSsh("setOutputVolume60.py")
 naoPythonSsh("altexttospeech_setparameter_default.py")
+"""
 
 # スライド2枚目以降はfor文で繰り返し
 #for i in range(2,slideNum+1):

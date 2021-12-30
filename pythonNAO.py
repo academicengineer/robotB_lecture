@@ -23,7 +23,7 @@ import time
 from selenium import webdriver
 
 # IPはNAOのボタンをクリックして確認して変更してください。
-ip = '192.168.11.18'
+ip = '192.168.1.10'
 lecture = 'lec2'
 slide_num = 4
 
@@ -32,7 +32,7 @@ webcam_id=0
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
-driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\slideBrowser\\chromedriver.exe')
+driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\chromedriver.exe')
 
 # NAOにsshでPythonを実行するプログラム
 def naoPythonSsh(python_code):

@@ -8,13 +8,13 @@ import time
 from selenium import webdriver
 
 # IPはNAOのボタンをクリックして確認して変更してください。
-ip = '192.168.11.18'
+ip = '192.168.1.10'
 lecture = 'lec2'
 slide_num = 4
 
 # ChromeDriverのパス設定
 # Chromeのバージョンによってドライバが変わるので注意
-driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\slideBrowser\\chromedriver.exe')
+driver = webdriver.Chrome('C:\\Users\\member\\Desktop\\chromedriver.exe')
 
 # NAOのWebサーバをブラウザで起動
 driver.get("http://"+ip+"/apps/lec2_slide1.html")
